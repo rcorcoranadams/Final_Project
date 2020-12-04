@@ -1,4 +1,5 @@
-# USING GEOPANDAS AND FOLIUM IN TANDEM: A GEOSPATIAL EXPLORATION IN RETROGRADE
+# Using GeoPandas and Folium in Tandem: A Geospatial Exploration using Retrograde Problem Solving
+
 A tutorial/interactive experience for using both GeoPandas and Folium libraries. According to Astell-Burt et al. (2014), lack of green space accessibility and the inequitable distribution of parks is likely to exacerbate health inequalities and crime levels. Worcester, Massachusetts is considered an environmental justice zone with a high population of citizens with an average household income well below the state average, an average education level below the state average and high renter population. In this tutorial, we will be re-creating a geospatial vector analysis comparing the number of households in Worcester with no access to a vehicle and the locations of open space.
 
 Created by: Rachel Corcoran-Adams for IDCE 30274, November 2020
@@ -82,3 +83,38 @@ vehicle.crs
 This is the output:
 
 ![crs](crs_output2.png)
+
+# Part 3: Geoprocessing with GeoPandas
+```python
+# This line selects by attribute to create a worcester polygon
+worcester = census_towns[census_towns['TOWN']=="WORCESTER"]
+# This line clips the open space file to just include worcester
+open_space_clipped = gpd.clip(open_space, worcester)
+# This line selects by attribute for open space to include public access
+open_space_select = open_space_clipped[open_space_clipped['PUB_ACCESS']=="Y"]
+# This line selects only polygons with full public access and with primary purpose of recreation and conservation
+pub_access_recreation = open_space_select[open_space_select['PRIM_PURP']== "B"] 
+# This line will be selecting only the residential multi-family features in landcover 
+landcover_residential = landcover[landcover['USEGENCODE']== "Residential-multi-family"]
+```
+# Part 4: Converting to GeoJSON
+```python
+# Creates a function to convert the shapefiles into geojson 
+def shapefile2geojson(infile, outfile, fieldname):
+    options = gdal.VectorTranslateOptions(format="GeoJSON",
+                                          dstSRS="EPSG:4326")
+    gdal.VectorTranslate(outfile, infile, options=options)
+shapefile2geojson('pub_access_recreation.geojson', 'pub_access_recreation.shp', 'SITE_NAME')
+shapefile2geojson('landcover_residential.geojson', 'landcover_residential.shp', 'COVERNAME')
+shapefile2geojson('worcester.geojson', 'worcester.shp', 'TOWN')
+shapefile2geojson('vehicle_access.geojson', 'vehicle_access.shp', 'B08201_002E')
+```
+# Part 5: Making the final map!
+```python
+# Shows the vehicle access Geojson
+bins = list(vehicle_access['TARGET_FID'].quantile([0,0.25,0.5,0.75,1]))
+folium.GeoJson(
+    vehicle_access
+).add_to(Vehicle_map)
+Vehicle_map
+```
