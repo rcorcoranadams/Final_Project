@@ -84,7 +84,7 @@ vehicle.crs
 ```
 This is the output:
 
-![crs](crs_output2.png)
+![crs](images/crs_output2.png)
 
 # Part 3: Geoprocessing with GeoPandas
 ```python
@@ -124,4 +124,4 @@ Vehicle_map
 ```
 This is the output:
 
-![folium](folium_output.png)
+![folium](images/folium_output2.png)
