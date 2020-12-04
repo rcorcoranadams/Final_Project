@@ -1,8 +1,9 @@
 # Using GeoPandas and Folium in Tandem: A Geospatial Exploration using Retrograde Problem Solving
+Created by: Rachel Corcoran-Adams for IDCE 30274, November 2020
 
 A tutorial/interactive experience for using both GeoPandas and Folium libraries. According to Astell-Burt et al. (2014), lack of green space accessibility and the inequitable distribution of parks is likely to exacerbate health inequalities and crime levels. Worcester, Massachusetts is considered an environmental justice zone with a high population of citizens with an average household income well below the state average, an average education level below the state average and high renter population. In this tutorial, we will be re-creating a geospatial vector analysis comparing the number of households in Worcester with no access to a vehicle and the locations of open space.
 
-Created by: Rachel Corcoran-Adams for IDCE 30274, November 2020
+
 
 In this tutorial, we will be exploring the ways in which 'geopandas', and 'folium' can be used in Python to pre-process, geoprocess and display vector shapefiles. 
 
@@ -39,6 +40,7 @@ drive.mount('/content/gdrive')
 # set root path
 root_path = 'gdrive/My Drive/GIS/final_project/'
 ```
+
 # Part 2: Data Pre-Processing
 ```python
 # import all of the shapefiles 
@@ -97,6 +99,7 @@ pub_access_recreation = open_space_select[open_space_select['PRIM_PURP']== "B"]
 # This line will be selecting only the residential multi-family features in landcover 
 landcover_residential = landcover[landcover['USEGENCODE']== "Residential-multi-family"]
 ```
+
 # Part 4: Converting to GeoJSON
 ```python
 # Creates a function to convert the shapefiles into geojson 
@@ -109,6 +112,7 @@ shapefile2geojson('landcover_residential.geojson', 'landcover_residential.shp', 
 shapefile2geojson('worcester.geojson', 'worcester.shp', 'TOWN')
 shapefile2geojson('vehicle_access.geojson', 'vehicle_access.shp', 'B08201_002E')
 ```
+
 # Part 5: Making the final map!
 ```python
 # Shows the vehicle access Geojson
