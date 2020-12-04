@@ -79,4 +79,4 @@ landcover.crs
 #check to see if it worked!
 vehicle.crs
 ```
-If it does, the output will look like this: ![spm19.head](images/spm19.head().png)
+If it does, the output will look like this: ![crs](crs_output.png)
