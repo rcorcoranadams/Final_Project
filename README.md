@@ -30,3 +30,31 @@ import geopandas as gpd
 from shapely.geometry import Point, Polygon, MultiPolygon
 from shapely import wkt
 ```
+Importing data to Google Drive helps when working with Google Colab.
+```python 
+# import files from Drive
+from google.colab import drive
+drive.mount('/content/gdrive')
+# set root path
+root_path = 'gdrive/My Drive/GIS/final_project/'
+```
+# Part 2: Data Pre-Processing
+```python
+# import all of the shapefiles 
+open_space = gpd.read_file(root_path+'open_space_clipped_1.shp')
+ACS_Worcester = gpd.read_file(root_path+'ACS_Clipped_final_1.shp')
+census_tracts = gpd.read_file(root_path+'CENSUS2010TRACTS_POLY.shp')
+census_towns = gpd.read_file(root_path+ 'CENSUS2010TOWNS_POLY.shp')
+landcover = gpd.read_file(root_path+ 'landcover_clipped.shp')
+vehicle_access = gpd.read_file(root_path+ 'vehicle_access.shp')
+```
+I then projected all of my shapefiles to EPSG:4326, which is the required coordinate system for geojson. 
+```python
+# project all the shapefiles 
+open_space = open_space.to_crs("EPSG:4326")
+ACS_Worcester = open_space.to_crs("EPSG:4326")
+census_tracts = census_tracts.to_crs("EPSG:4326")
+census_towns = census_towns.to_crs("EPSG:4326")
+landcover = landcover.to_crs("EPSG:4326")
+vehicle_access = vehicle_access.to_crs("EPSG:4326")
+```
