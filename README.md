@@ -124,4 +124,4 @@ Vehicle_map
 ```
 This is the output:
 
-![folium](images/folium_output2.png)
+![folium](images/folium_output2.PNG)
