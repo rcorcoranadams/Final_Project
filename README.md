@@ -1,4 +1,4 @@
-# USING GEOPANDAS AND FOLIUM IN TANDEM:A GEOSPATIAL EXPLORATION IN RETROGRADE
+# USING GEOPANDAS AND FOLIUM IN TANDEM: A GEOSPATIAL EXPLORATION IN RETROGRADE
 A tutorial/interactive experience for using both GeoPandas and Folium libraries 
 
 Created by: Rachel Corcoran-Adams for IDCE 30274, November 2020
@@ -13,7 +13,7 @@ Land cover (2016) from MassGIS - [here](https://docs.digital.mass.gov/dataset/ma
 American Community Survey 2014-2016 from the Living Atlas - [here](https://www.arcgis.com/home/item.html?id=9a9e43ec1603446880c50d4ed1df2207)
 
 # Part 1: Importing
-'''Python
+```python
 !pip install geopandas
 !pip install gdal
 !pip install rtree
@@ -29,4 +29,4 @@ from folium import plugins
 import geopandas as gpd
 from shapely.geometry import Point, Polygon, MultiPolygon
 from shapely import wkt
-'''
+```
