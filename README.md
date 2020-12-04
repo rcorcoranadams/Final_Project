@@ -1,5 +1,5 @@
 # USING GEOPANDAS AND FOLIUM IN TANDEM: A GEOSPATIAL EXPLORATION IN RETROGRADE
-A tutorial/interactive experience for using both GeoPandas and Folium libraries 
+A tutorial/interactive experience for using both GeoPandas and Folium libraries. According to Astell-Burt et al. (2014), lack of green space accessibility and the inequitable distribution of parks is likely to exacerbate health inequalities and crime levels. Worcester, Massachusetts is considered an environmental justice zone with a high population of citizens with an average household income well below the state average, an average education level below the state average and high renter population. In this tutorial, we will be re-creating a geospatial vector analysis comparing the number of households in Worcester with no access to a vehicle and the locations of open space.
 
 Created by: Rachel Corcoran-Adams for IDCE 30274, November 2020
 
@@ -58,3 +58,25 @@ census_towns = census_towns.to_crs("EPSG:4326")
 landcover = landcover.to_crs("EPSG:4326")
 vehicle_access = vehicle_access.to_crs("EPSG:4326")
 ```
+Check to see if it worked!
+```python
+#check to see if it worked!
+open_space.crs
+```
+```python
+#check to see if it worked!
+ACS_Worcester.crs
+```
+```python
+#check to see if it worked!
+census_towns.crs
+```
+```python
+#check to see if it worked!
+landcover.crs
+```
+```python
+#check to see if it worked!
+vehicle.crs
+```
+If it does, the output will look like this: ![spm19.head](images/spm19.head().png)
