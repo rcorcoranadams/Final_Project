@@ -80,4 +80,4 @@ landcover.crs
 vehicle.crs
 ```
 If it does, the output will look like this: 
-![crs](crs_output.png)
+![crs](crs_output2.png)
