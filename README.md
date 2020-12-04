@@ -79,4 +79,5 @@ landcover.crs
 #check to see if it worked!
 vehicle.crs
 ```
-If it does, the output will look like this: ![crs](crs_output.png)
+If it does, the output will look like this: 
+![crs](crs_output.png)
