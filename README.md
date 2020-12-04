@@ -118,3 +118,6 @@ folium.GeoJson(
 ).add_to(Vehicle_map)
 Vehicle_map
 ```
+This is the output:
+
+![folium](folium_output.png)
