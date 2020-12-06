@@ -109,6 +109,12 @@ pub_access_recreation.plot(column='SITE_NAME', color='green', figsize=(16,8));
 Your output should look like this:
 
 ![greenspace](images/green_space.png)
+```python
+vehicle_access.plot(column='TARGET_FID', color='red', figsize=(16,8));
+```
+Your output should look like this:
+
+![vehicle](images/vehicle access.png)
 # Part 5: Converting to GeoJSON
 ```python
 # Creates a function to convert the shapefiles into geojson 
