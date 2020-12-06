@@ -103,18 +103,24 @@ pub_access_recreation = open_space_select[open_space_select['PRIM_PURP']== "B"]
 landcover_residential = landcover[landcover['USEGENCODE']== "Residential-multi-family"]
 ```
 # Part 6: Visualizing 
+Now, we will be using the matplot library to help visualize what our finished layers look like individually. I personally prefer using another method to visualize multiple layers at once, so I will display my layers individualy for now just to ensure that the geoprocessing worked. 
+
 ```python
 pub_access_recreation.plot(column='SITE_NAME', color='green', figsize=(16,8));
 ```
 Your output should look like this:
 
 ![greenspace](images/green_space.png)
+What do we see in this map? Where are the distributions of public green space located predominately? Are they all in one area? 
+
 ```python
 vehicle_access.plot(column='TARGET_FID', color='red', figsize=(16,8));
 ```
 Your output should look like this:
 
-![vehicle](images/vehicle access.png)
+![vehicle](images/vehicle acess.png)
+Now, this does not show us a lot of information, right? In order to visulize the distribution of the total number of households without access to a vehicle, it would make a lot more sense to create a quantile map in Folium. That is where Part 5 comes in. 
+
 # Part 5: Converting to GeoJSON
 ```python
 # Creates a function to convert the shapefiles into geojson 
