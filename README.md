@@ -119,7 +119,7 @@ vehicle_access.plot(column='TARGET_FID', color='red', figsize=(16,8));
 ```
 Your output should look like this:
 
-![vehicle](images/vehicle acess.png)
+![vehicle](images/vehicle_access.png)
 
 Now, this does not show us a lot of information, right? In order to visulize the distribution of the total number of households without access to a vehicle, it would make a lot more sense to create a quantile map in Folium. That is where Part 5 comes in. 
 
