@@ -111,6 +111,7 @@ pub_access_recreation.plot(column='SITE_NAME', color='green', figsize=(16,8));
 Your output should look like this:
 
 ![greenspace](images/green_space.png)
+
 What do we see in this map? Where are the distributions of public green space located predominately? Are they all in one area? 
 
 ```python
@@ -119,6 +120,7 @@ vehicle_access.plot(column='TARGET_FID', color='red', figsize=(16,8));
 Your output should look like this:
 
 ![vehicle](images/vehicle acess.png)
+
 Now, this does not show us a lot of information, right? In order to visulize the distribution of the total number of households without access to a vehicle, it would make a lot more sense to create a quantile map in Folium. That is where Part 5 comes in. 
 
 # Part 5: Converting to GeoJSON
