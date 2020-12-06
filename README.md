@@ -102,8 +102,14 @@ pub_access_recreation = open_space_select[open_space_select['PRIM_PURP']== "B"]
 # This line will be selecting only the residential multi-family features in landcover 
 landcover_residential = landcover[landcover['USEGENCODE']== "Residential-multi-family"]
 ```
+# Part 6: Visualizing 
+```python
+pub_access_recreation.plot(column='SITE_NAME', color='green', figsize=(16,8));
+```
+Your output should look like this:
 
-# Part 4: Converting to GeoJSON
+
+# Part 5: Converting to GeoJSON
 ```python
 # Creates a function to convert the shapefiles into geojson 
 def shapefile2geojson(infile, outfile, fieldname):
