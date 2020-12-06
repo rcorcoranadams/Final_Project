@@ -15,6 +15,7 @@ Land cover (2016) from MassGIS - [here](https://docs.digital.mass.gov/dataset/ma
 American Community Survey 2014-2016 from the Living Atlas - [here](https://www.arcgis.com/home/item.html?id=9a9e43ec1603446880c50d4ed1df2207)
 
 # Part 1: Importing
+First download all the libraries that will be needed for this lab. **If you are not using Colab you may need to install pandas, if you're using Colab you don't because Pandas is already installed in the Google Colab Environment.**
 ```python
 !pip install geopandas
 !pip install gdal
@@ -32,7 +33,7 @@ import geopandas as gpd
 from shapely.geometry import Point, Polygon, MultiPolygon
 from shapely import wkt
 ```
-Importing data to Google Drive helps when working with Google Colab.
+Importing data to Google Drive helps when working with Google Colab. I created a GIS folder within my Google Drive that stores all of my geospatial data. Within that folder I have a folder called 'final_project' that functions as a working folder for my ouputs.
 ```python 
 # import files from Drive
 from google.colab import drive
@@ -42,6 +43,7 @@ root_path = 'gdrive/My Drive/GIS/final_project/'
 ```
 
 # Part 2: Data Pre-Processing
+Once Colab is connected to your Drive, you're going to want to import your shapefiles. Again please note that if you are NOT using Colab you should NOT use this exact code to connect to your input data.
 ```python
 # import all of the shapefiles 
 open_space = gpd.read_file(root_path+'open_space_clipped_1.shp')
@@ -51,7 +53,7 @@ census_towns = gpd.read_file(root_path+ 'CENSUS2010TOWNS_POLY.shp')
 landcover = gpd.read_file(root_path+ 'landcover_clipped.shp')
 vehicle_access = gpd.read_file(root_path+ 'vehicle_access.shp')
 ```
-I then projected all of my shapefiles to EPSG:4326, which is the required coordinate system for geojson. 
+I then projected all of my shapefiles to EPSG:4326, which is the required coordinate system for geojson. The EPSG code 4326 is the specific code for the WGS 1984 CRS.
 ```python
 # project all the shapefiles 
 open_space = open_space.to_crs("EPSG:4326")
@@ -82,11 +84,12 @@ landcover.crs
 #check to see if it worked!
 vehicle.crs
 ```
-This is the output:
+This should be the output:
 
 ![crs](images/crs_output2.png)
 
 # Part 3: Geoprocessing with GeoPandas
+Now, we want to geoprocess our layers by using clip and select by attribute. This is basic map algebra and vector analysis. 
 ```python
 # This line selects by attribute to create a worcester polygon
 worcester = census_towns[census_towns['TOWN']=="WORCESTER"]
