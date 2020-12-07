@@ -124,6 +124,7 @@ Your output should look like this:
 Now, this does not show us a lot of information, right? In order to visulize the distribution of the total number of households without access to a vehicle, it would make a lot more sense to create a quantile map in Folium. That is where Part 5 comes in. 
 
 # Part 5: Converting to GeoJSON
+In order for you to display your layers in Folium, they must be in the form of geojson. The code below employs the use of the GDAL command library to instruct Python to convert your shapefiles into .geojson files. 
 ```python
 # Creates a function to convert the shapefiles into geojson 
 def shapefile2geojson(infile, outfile, fieldname):
@@ -137,6 +138,7 @@ shapefile2geojson('vehicle_access.geojson', 'vehicle_access.shp', 'B08201_002E')
 ```
 
 # Part 5: Making the final map!
+Using the folium 
 ```python
 # Shows the vehicle access Geojson
 bins = list(vehicle_access['TARGET_FID'].quantile([0,0.25,0.5,0.75,1]))
@@ -151,7 +153,7 @@ This is the output:
 
 # Challenge: Making it quantile!
 As we can see above, the output still does not display the quantile bins that we need to show the distribution of households with no access to a vehicle. 
-As a challenge, use the Features to JSON Conversion toolbox in ArcGIS Pro to transfer the geojson files to ArcPro and then use the following function to write GeoJson into a .geojson to create a Folium map. 
+As a challenge, use the Features to JSON Conversion toolbox in ArcGIS Pro to transfer the geojson files to ArcPro and then use the following function to write GeoJson into a .geojson to create a Folium map. You can learn more about how to do this [here](https://pro.arcgis.com/en/pro-app/tool-reference/conversion/features-to-json.htm).
 
 ```python
 def write_json(self, features):
