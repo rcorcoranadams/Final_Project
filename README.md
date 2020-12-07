@@ -1,4 +1,4 @@
-# Using GeoPandas and Folium in Tandem: A Geospatial Exploration using Retrograde Problem Solving
+# Using GeoPandas, MatPlot and Folium in Tandem: A Geospatial Exploration using Retrograde Problem Solving
 Created by: Rachel Corcoran-Adams for IDCE 30274, November 2020
 
 A tutorial/interactive experience for using both GeoPandas and Folium libraries. According to Astell-Burt et al. (2014), lack of green space accessibility and the inequitable distribution of parks is likely to exacerbate health inequalities and crime levels. Worcester, Massachusetts is considered an environmental justice zone with a high population of citizens with an average household income well below the state average, an average education level below the state average and high renter population. In this tutorial, we will be re-creating a geospatial vector analysis comparing the number of households in Worcester with no access to a vehicle and the locations of open space.
@@ -121,7 +121,7 @@ Your output should look like this:
 
 ![vehicle](images/vehicle.png)
 
-Now, this does not show us a lot of information, right? In order to visulize the distribution of the total number of households without access to a vehicle, it would make a lot more sense to create a quantile map in Folium. That is where Part 5 comes in. 
+Now, this does not show us a lot of information, right? In order to visualize the distribution of the total number of households without access to a vehicle, it would make a lot more sense to create a quantile map in Folium. That is where Part 5 comes in. 
 
 # Part 5: Converting to GeoJSON
 In order for you to display your layers in Folium, they must be in the form of geojson. The code below employs the use of the GDAL command library to instruct Python to convert your shapefiles into .geojson files. 
