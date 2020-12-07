@@ -148,3 +148,17 @@ Vehicle_map
 This is the output:
 
 ![folium](images/folium_output2.PNG)
+
+# Challenge: Making it quantile!
+As we can see above, the output still does not display the quantile bins that we need to show the distribution of households with no access to a vehicle. 
+As a challenge, use the Features to JSON Conversion toolbox in ArcGIS Pro to transfer the geojson files to ArcPro and then use the following function to write GeoJson into a .geojson to create a Folium map. 
+
+```python
+def write_json(self, features):
+    # feature is a shapely geometry feature
+    geom_in_geojson = geojson.Feature(geometry=features, properties={})
+    tmp_file = tempfile.mkstemp(suffix='.geojson')
+    with open(tmp_file, 'w') as outfile:
+        geojson.dump(geom_in_geojson, outfile)
+    return tmp_file
+```
